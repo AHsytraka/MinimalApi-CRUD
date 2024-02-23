@@ -28,6 +28,13 @@ List<User> users = new()
 //A Get Endpoint using minimalApi
 app.MapGet("/Users", () => users);
 
+//Post
+app.MapPost("/AddUser", (User user) =>
+{
+    users.Add(user);
+    return users;
+});
+    
 app.UseHttpsRedirection();
 
 app.Run();
